@@ -7,6 +7,7 @@ import javafx.concurrent.Task;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -55,11 +56,7 @@ public class TaskDemo extends Application {
         String myName = Thread.currentThread().getName();
         Label myLabel = new Label(myName + " active");
         Button cancelButton = new Button("Cancel");
-        cancelButton.setOnAction(e -> {
-            task.cancel();
-            Alert alert = new Alert(Alert.AlertType.WARNING,"Process Canceled!");
-            alert.showAndWait();
-        });
+        cancelButton.setOnAction(e -> task.cancel());
         FlowPane myPane = new FlowPane();
         ProgressIndicator progress = new ProgressIndicator(0);
         ObservableList<Node> children = myPane.getChildren();
@@ -72,7 +69,6 @@ public class TaskDemo extends Application {
         try {
             long time = (long) (Math.random() * 20000);
             for (long t = 0; t < time; t += 1) {
-                lock.lock();
                 try {
                     // Perform a "banking transaction".
                     if (Math.random() >= 0.5) {
@@ -92,15 +88,12 @@ public class TaskDemo extends Application {
                 }
                 long tt = t;
                 double pct = (double) tt / time;
-                progress.setProgress(pct);
                 Thread.sleep(1);
             }
         } catch (InterruptedException x) {
             // EMPTY EXCEPTION HANDLERS ARE OFTEN A BAD IDEA!
         }
-        Platform.runLater(() -> {
-            taskView.getItems().remove(myPane);
-        });
+        taskView.getItems().remove(myPane);
     }
 
     public static void main(String[] args) {

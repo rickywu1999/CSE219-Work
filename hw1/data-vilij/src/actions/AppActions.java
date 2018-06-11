@@ -6,6 +6,7 @@ import vilij.components.ActionComponent;
 import vilij.templates.ApplicationTemplate;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import vilij.components.ConfirmationDialog;
@@ -22,14 +23,12 @@ public final class AppActions implements ActionComponent {
 
     /** The application to which this class of actions belongs. */
     private final ApplicationTemplate applicationTemplate;
-    private File file;
 
     /** Path to the data file currently active. */
     Path dataFilePath;
 
     public AppActions(ApplicationTemplate applicationTemplate) {
         this.applicationTemplate = applicationTemplate;
-        file = new File("");
     }
 
     @Override
@@ -40,7 +39,6 @@ public final class AppActions implements ActionComponent {
                 if (((ConfirmationDialog)confirm).getSelectedOption().equals(ConfirmationDialog.Option.NO)){
                     applicationTemplate.getUIComponent().clear();
                     applicationTemplate.getDataComponent().clear();
-                    file = new File("");
                 }
                 else {
                     FileChooser fileChooser = new FileChooser();
@@ -50,7 +48,7 @@ public final class AppActions implements ActionComponent {
                             "*" + applicationTemplate.manager.getPropertyValue(DATA_FILE_EXT.name())));
                     fileChooser.setInitialDirectory(new File(applicationTemplate.manager.getPropertyValue(DATA_RESOURCE_PATH.name())));
                     try {
-                        file = fileChooser.showSaveDialog(new Stage());
+                        File file = fileChooser.showSaveDialog(new Stage());
                         FileWriter fileWriter = new FileWriter(file);
                         fileWriter.write(((AppUI)applicationTemplate.getUIComponent()).getTextArea());
                         fileWriter.close();
@@ -69,38 +67,7 @@ public final class AppActions implements ActionComponent {
 
     @Override
     public void handleSaveRequest() {
-        if (file.getPath().equals("")){
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle(applicationTemplate.manager.getPropertyValue(SAVE_UNSAVED_WORK_TITLE.name()));
-            fileChooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter(applicationTemplate.manager.getPropertyValue(DATA_FILE_EXT_DESC.name()),
-                "*" + applicationTemplate.manager.getPropertyValue(DATA_FILE_EXT.name())));
-            fileChooser.setInitialDirectory(new File(applicationTemplate.manager.getPropertyValue(DATA_RESOURCE_PATH.name())));
-            try {
-                file = fileChooser.showSaveDialog(new Stage());
-                FileWriter fileWriter = new FileWriter(file);
-                fileWriter.write(((AppUI)applicationTemplate.getUIComponent()).getTextArea());
-                fileWriter.close();
-                ((AppUI)applicationTemplate.getUIComponent()).saveClear();
-                applicationTemplate.getDataComponent().clear();
-            }catch (Exception x){
-            //in case they click ESC,
-            };
-        }
-        else {
-            try {
-                FileWriter fileWriter = new FileWriter(file);
-                fileWriter.write(((AppUI)applicationTemplate.getUIComponent()).getTextArea());
-                fileWriter.close();
-                ((AppUI)applicationTemplate.getUIComponent()).saveClear();
-                applicationTemplate.getDataComponent().clear();
-            }
-            catch (Exception x){
-                applicationTemplate.getDialog(Dialog.DialogType.ERROR).show(applicationTemplate.manager.getPropertyValue(ERROR_LABEL.name()),
-                        applicationTemplate.manager.getPropertyValue(RESOURCE_SUBDIR_NOT_FOUND.name()));             
-            }
-            
-        }
+        // TODO: NOT A PART OF HW 1
     }
 
     @Override
@@ -138,10 +105,6 @@ public final class AppActions implements ActionComponent {
         Dialog confirm = applicationTemplate.getDialog(Dialog.DialogType.CONFIRMATION);
         confirm.show(applicationTemplate.manager.getPropertyValue(SAVE_UNSAVED_WORK_TITLE.name()), 
                 applicationTemplate.manager.getPropertyValue(SAVE_UNSAVED_WORK.name()));
-        try {
-            return !(((ConfirmationDialog)confirm).getSelectedOption().equals(ConfirmationDialog.Option.CANCEL));
-        } catch (Exception x){
-            return false;
-        }
+        return !(((ConfirmationDialog)confirm).getSelectedOption().equals(ConfirmationDialog.Option.CANCEL));
     }
 }

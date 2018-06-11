@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This XML file allows us to easily customize the visual aesthetics of the user interface. Note that this properties
+file is only for the standard high-level controls for an application, so it does not include properties meant for any
+functionality within the main workspace. -->
+<properties>
+    <property_list>
+        <!-- RESOURCE FILES AND FOLDERS -->
+        <property name="DATA_RESOURCE_PATH" value="data"/>
+        <property name="GUI_RESOURCE_PATH" value="gui"/>
+        <property name="ICONS_RESOURCE_PATH" value="icons"/>
+        <property name="CSS_STYLE_SHEET_PATH" value ="/css/data_vilij.css"/>
+        <property name="CLASSIFICATION_SOURCE_PATH" value="classification."/>
+        <property name="CLUSTERING_SOURCE_PATH" value="clustering."/>
+
+        <!-- USER INTERFACE ICON FILES -->
+        <property name="SCREENSHOT_ICON" value="screenshot.png"/>
+        <property name="RUN_ICON" value="run.png"/>
+
+        <!-- TOOLTIPS FOR BUTTONS -->
+        <property name="SCREENSHOT_TOOLTIP" value="Screenshot"/> <!-- will print current view of image to a file -->
+        <property name="RUN_TOOLTIP" value="Run"/>
+
+        <!-- WARNING MESSAGES -->
+        <property name="EXIT_WHILE_RUNNING_TITLE" value = "Exit while running?"/>
+        <property name="EXIT_WHILE_RUNNING_WARNING"
+                  value="An algorithm is running. If you exit now, all unsaved changes will be lost. Are you sure?"/>
+
+        <!-- ERROR MESSAGES -->
+        <property name="RESOURCE_SUBDIR_NOT_FOUND" value="Directory not found under resources."/>
+        <property name="ERROR_LABEL" value="Error"/>
+        <property name="FORMAT_ERROR_MESSAGE" value="Invalid data format inputted."/>
+        <property name="EMPTY_ERROR_MESSAGE" value="No Data Found."/>
+        <property name="PARSEFORMAT_ERROR_MESSAGE" value="Format is incorrect"/>
+        <property name="DATALABEL_ERROR_MESSAGE" value=" already used!"/>
+        <property name="MISSING_DATA_MESSAGE" value="X or Y coordinate is missing"/>
+        <property name="INVALID_DATA_MESSAGE" value="X and Y coordinates must be numbers"/>
+        <property name="REMAINING_ERRORS" value=" more errors"/>
+        <property name="FORMAT_REMINDER" value="Format for each line: @instance[tab]name[tab]x-coordinate,y-coordinate"/>
+        <property name="NO_ALGORITHM_ERROR_MESSAGE" value="No algorithm of this type is available."/>
+        <property name="ALGORITHM_CLASS_EXIST_ERROR_MESSAGE" value="This algorithm does not exist."/>
+        <property name="ACCESS_ERROR_MESSAGE" value="This algorithm can not be accessed."/>
+        <property name="INSTANTIATE_ERROR_MESSAGE" value="This algorithm can not be instantiated."/>
+
+        <!-- APPLICATION-SPECIFIC MESSAGE TITLES -->
+        <property name="SAVE_UNSAVED_WORK_TITLE" value="Save Current Work"/>
+        <property name="LONG_LOAD_FILE_TITLE" value="Data File is More Than 10 Lines"/>
+
+        <!-- APPLICATION-SPECIFIC MESSAGES -->
+        <property name="SAVE_UNSAVED_WORK" value="Would you like to save current work?"/>
+        <property name="LONG_LOAD_FILE" value="Your file is more than 10 lines long.Only 10 lines will be displayed. Total Lines: "/>
+
+        <!-- APPLICATION-SPECIFIC PARAMETERS -->
+        <property name="DATA_FILE_EXT" value=".tsd"/>
+        <property name="DATA_FILE_EXT_DESC" value="Tab-Separated Data File"/>
+        <property name="TEXT_AREA" value="text area"/>
+        <property name="SPECIFIED_FILE" value=" specified file"/>
+        <property name="BUTTON_LABEL_DISPLAY" value="Display"/>
+        <property name="CLUSTERING_BUTTON_LABEL_DISPLAY" value="Clustering"/>
+        <property name="CLASSIFICATION_BUTTON_LABEL_DISPLAY" value="Classification"/>
+        <property name="CONFIG_BUTTON_LABEL_DISPLAY" value="Configuration"/>
+        <property name="CONTINUOUS_BUTTON_LABEL_DISPLAY" value="Run Continuously"/>
+        <property name="ITERATIONS_LABEL_DISPLAY" value="Maximum Number of Iterations:"/>
+        <property name="INTERVALS_LABEL_DISPLAY" value="Update Interval:"/>
+        <property name="CLUSTERNUM_LABEL_DISPLAY" value="Number of Clusters:"/>
+        <property name="BACK_BUTTON_LABEL_DISPLAY" value="Back"/>
+        <property name="RUN_BUTTON_LABEL_DISPLAY" value="Next Display"/>
+        <property name="TITLE_LABEL" value="Data File"/>
+        <property name="ALGORITHM_TYPE_LABEL" value="Algorithm Types:"/>
+        <property name="ALGORITHM_CHOOSE_LABEL" value="Algorithm Choices:"/>
+        <property name="READ_ONLY_LABEL" value="Data Completed"/>
+        <property name="PICTURE_FILE_EXT" value=".png"/>
+        <property name="PICTURE_FILE_EXT_DESC" value="Portable Network Graphics"/>
+        <property name="INSTANCE_NUMBER_TEXT" value=" instances with "/>
+        <property name="LABEL_NUMBER_TEXT" value=" labels load from text file at: "/>
+        <property name="LABEL_LIST_TEXT" value=". The labels are:"/>
+        <property name="NO_FILE_TEXT" value="(No File Found)"/>
+        <property name="OK" value="OK"/>
+        <property name="CLASSIFICATION_INSTANCE_1" value="@classification-instance1"/>
+        <property name="CLASSIFICATION_INSTANCE_2" value="@classification-instance2"/>
+        <property name="CLASSIFICATION_LABEL_1" value="classification-label1"/>
+        <property name="CLASSIFICATION_LABEL_2" value="classification-label2"/>
+        <property name="CLASSIFICATION_CSS_LOOKUP" value=".chart-series-line"/>
+        <property name="CLASSIFICATION_CSS_STYLE" value="-fx-stroke: blue;"/>
+        
+        
+        <!-- SYMBOLS -->
+        <property name="COLON" value=":"/>
+        <property name="AT_LINE" value="@"/>
+        <property name="COMMA" value=","/>
+        
+        <!-- CSS Stuff -->
+        <property name="TEXT_AREA_CSS" value="textcss"/>
+        
+        <!-- Algorithms (Add more algorithms if neccessary,separate names by comma) -->
+        <property name="CLUSTERING_ALGORITHM_NAMES" value="data-vilij/src/clustering"/>
+        <property name="CLASSIFICATION_ALGORITHM_NAMES" value="data-vilij/src/classification"/>
+
+    </property_list>
+    <property_options_list/>
+</properties>

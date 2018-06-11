@@ -1,0 +1,39 @@
+.chart-horizontal-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-plot-background { 
+    -fx-border-style: solid; 
+    -fx-border-width: 4px;
+}
+
+.chart-horizontal-zero-line{
+    -fx-stroke: transparent;
+}
+
+.chart-vertical-zero-line{
+    -fx-stroke: transparent;
+}
+
+.axis {
+    -fx-tick-length: 20;
+    -fx-minor-tick-length: 10;
+}
+
+.axis-tick-mark {
+    -fx-stroke-width: 3;
+    -fx-stroke: #000000;    
+}
+
+.axis-minor-tick-mark {
+    -fx-stroke-width: 1.5;
+    -fx-stroke:#000000;
+}
+
+.chart-series-line{
+    -fx-stroke: transparent;
+}

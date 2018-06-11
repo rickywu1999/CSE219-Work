@@ -45,7 +45,7 @@ public final class AppUI extends UITemplate {
     @Override
     protected void setResourcePaths(ApplicationTemplate applicationTemplate) {
         super.setResourcePaths(applicationTemplate);
-        String iconsPath = separator + String.join(separator,
+        String iconsPath = "/" + String.join(separator,
                                              applicationTemplate.manager.getPropertyValue(GUI_RESOURCE_PATH.name()),
                                              applicationTemplate.manager.getPropertyValue(ICONS_RESOURCE_PATH.name()));
         scrnshoticonPath = String.join(separator, iconsPath, applicationTemplate.manager.getPropertyValue(SCREENSHOT_ICON.name()));
@@ -78,12 +78,9 @@ public final class AppUI extends UITemplate {
     public void clear() {
         textArea.clear();
         chart.getData().clear();
-        newClear();
-        saveClear();
+        newButton.setDisable(true);
+        saveButton.setDisable(true);
     }
-    
-    public void newClear(){newButton.setDisable(true);}
-    public void saveClear(){saveButton.setDisable(true);}
     
     public String getTextArea(){
         return textArea.getText();
